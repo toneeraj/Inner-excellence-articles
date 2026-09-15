@@ -1,0 +1,230 @@
+:root {
+  --ground:    #EAEDE9;
+  --surface:   #F4F6F3;
+  --ink:       #171C19;
+  --ink-soft:  #333B36;
+  --muted:     #5E6862;
+  --rule:      #CDD4CD;
+  --accent:    #2F6152;
+
+  --serif: "Newsreader", "Iowan Old Style", Georgia, "Times New Roman", serif;
+  --mono:  "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  /* one measure, one rhythm — everything else derives from these */
+  --measure: 37rem;
+  --body:    clamp(1.09rem, 1.02rem + 0.34vw, 1.23rem);
+  --leading: 1.8;
+  --para:    1.85rem;
+  --rail:    2.75rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --ground:   #121613;
+    --surface:  #1A201C;
+    --ink:      #E7ECE7;
+    --ink-soft: #C4CCC6;
+    --muted:    #8D978F;
+    --rule:     #2F3731;
+    --accent:   #86C2AA;
+  }
+}
+
+:root[data-theme="dark"] {
+  --ground:   #121613;
+  --surface:  #1A201C;
+  --ink:      #E7ECE7;
+  --ink-soft: #C4CCC6;
+  --muted:    #8D978F;
+  --rule:     #2F3731;
+  --accent:   #86C2AA;
+}
+
+body {
+  background: var(--ground);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-optical-sizing: auto;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  hanging-punctuation: first last;
+}
+
+.page {
+  max-width: calc(var(--measure) + var(--rail) + 2.5rem);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+  padding-block: 5rem 5.5rem;
+}
+
+/* ---- masthead ------------------------------------------------------ */
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 1.5rem;
+  font-family: var(--mono);
+  font-size: 0.705rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 2.6rem;
+}
+.meta .pillar { color: var(--accent); }
+
+h1 {
+  font-size: clamp(2.5rem, 8vw, 4.1rem);
+  font-weight: 500;
+  line-height: 1.03;
+  letter-spacing: -0.022em;
+  text-wrap: balance;
+  margin: 0 0 1.6rem;
+  max-width: 17ch;
+}
+
+.standfirst {
+  font-size: clamp(1.1rem, 1.02rem + 0.4vw, 1.28rem);
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.5;
+  color: var(--muted);
+  max-width: 32rem;
+  margin: 0 0 3.75rem;
+  text-wrap: pretty;
+}
+
+/* ---- the line the reader stands in --------------------------------- */
+
+.body {
+  border-left: 1px solid var(--rule);
+  padding-left: var(--rail);
+  display: flex;
+  flex-direction: column;
+  gap: var(--para);
+}
+
+.body > p {
+  margin: 0;
+  max-width: var(--measure);
+  font-size: var(--body);
+  line-height: var(--leading);
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
+
+/* opening paragraph carries a little more weight */
+.body > p.lede {
+  font-size: clamp(1.22rem, 1.12rem + 0.48vw, 1.44rem);
+  line-height: 1.62;
+  font-weight: 300;
+  color: var(--ink);
+}
+
+/* the pivots — the author's own voice, so serif, not chrome */
+.body > p.turn {
+  font-style: italic;
+  font-size: clamp(1.12rem, 1.04rem + 0.36vw, 1.28rem);
+  line-height: 1.55;
+  color: var(--ink);
+  margin-block: 0.9rem;
+  max-width: 30rem;
+}
+.body > p.turn em { font-style: normal; }
+
+/* ---- the quote breaks left across the line ------------------------- */
+
+figure.quote {
+  margin: 1.25rem 0 1.25rem calc(var(--rail) * -1);
+  padding: 2.25rem 2.25rem 1.75rem;
+  background: var(--surface);
+  border-top: 2px solid var(--accent);
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+figure.quote p {
+  margin: 0;
+  font-size: clamp(1.14rem, 1.06rem + 0.4vw, 1.31rem);
+  font-weight: 300;
+  line-height: 1.66;
+  color: var(--ink);
+  max-width: 34rem;
+  text-wrap: pretty;
+}
+
+figure.quote figcaption {
+  font-family: var(--mono);
+  font-size: 0.735rem;
+  line-height: 1.65;
+  letter-spacing: 0.03em;
+  color: var(--muted);
+  margin-top: 0.15rem;
+}
+
+/* ---- instances on the same line ------------------------------------ */
+
+ul.places {
+  list-style: none;
+  margin: 0.65rem 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+}
+
+ul.places li {
+  position: relative;
+  font-size: var(--body);
+  line-height: 1.6;
+  color: var(--ink);
+  max-width: 30rem;
+  text-wrap: pretty;
+}
+
+ul.places li::before {
+  content: "";
+  position: absolute;
+  left: calc(var(--rail) * -1);
+  top: 0.8em;
+  width: calc(var(--rail) - 0.95rem);
+  height: 1px;
+  background: var(--accent);
+}
+
+/* ---- close --------------------------------------------------------- */
+
+.body > p.close {
+  color: var(--ink);
+  font-size: clamp(1.15rem, 1.07rem + 0.38vw, 1.31rem);
+  line-height: 1.68;
+  margin-top: 0.5rem;
+}
+
+footer {
+  margin-top: 4.5rem;
+  padding-top: 1.6rem;
+  border-top: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 0.735rem;
+  line-height: 1.9;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+footer .src-label {
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--accent);
+  margin-bottom: 0.25rem;
+}
+
+@media (max-width: 40rem) {
+  :root { --rail: 1.4rem; --para: 1.6rem; }
+  .page { padding-block: 3.25rem 3.75rem; padding-inline: 1.25rem; }
+  figure.quote { padding: 1.65rem 1.4rem 1.4rem; }
+  ul.places li::before { width: 0.75rem; }
+}

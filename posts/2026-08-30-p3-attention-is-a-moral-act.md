@@ -4,26 +4,22 @@ pillar: P3 — Attention Is a Moral Act
 originally_sent: 2026-08-30
 re_rendered: 2026-09-15
 revision_shape: 21
+standfirst: The passage is the same; the writing around it is not.
 sources:
-  - David Foster Wallace, "This Is Water," Kenyon College commencement, 2005
-  - Shunryu Suzuki, on beginner's mind
+  - David Foster Wallace, "This Is Water," Kenyon College commencement address, 2005.
+  - Shunryu Suzuki, on beginner's mind.
 ---
-
-# Let us be free in the slow line
-
-> Originally sent 2026-08-30 (P3 — Attention Is a Moral Act). Re-rendered
-> 2026-09-15 in the revision 21 shape. The passage is the same; the writing
-> around it is not.
 
 There is a stretch of every day that nobody counts as part of their life. The queue, the traffic, the wait for someone who is late. Wallace spent the middle of a graduation speech standing in one of them, and he is not making a point about patience.
 
-Let's go to the supermarket with him.
+*Let's go to the supermarket with him.*
 
 > "The supermarket is very crowded, because of course it's the time of day when all the other people with jobs also try to squeeze in some grocery shopping. And the store is hideously lit and infused with soul-killing muzak or corporate pop..."
 >
 > "If you really learn how to pay attention, then you will know there are other options. It will actually be within your power to experience a crowded, hot, slow, consumer-hell type situation as not only meaningful, but sacred."
 >
-> — David Foster Wallace, "This Is Water," Kenyon College commencement, 2005
+> — David Foster Wallace, "This Is Water,"
+> Kenyon College commencement, 2005
 
 The claim is about what is happening in you while you stand there, not about the queue. The queue is the same queue either way. Wallace is saying that the reading you are running on it arrived without being chosen, and that a different one is available.
 
@@ -35,13 +31,11 @@ So what are we aiming at. We want to be able to see the line without a verdict a
 
 One more voice, because there is an obvious objection — if this is available, why is it so hard in a place as ordinary as a supermarket. Shunryu Suzuki, a Zen teacher who taught in San Francisco, said that in the beginner's mind there are many possibilities and in the expert's mind there are few. You are an expert on queues. You have stood in thousands. Expertise is exactly what closes the options down, and the more ordinary the situation the more expert you are in it, which is why the dull parts of the day are the hardest place to see anything new.
 
-Let us see where this shows up in an ordinary day. Three places.
+*Let us see where this shows up in an ordinary day. Three places.*
 
-The checkout line when the person ahead of you is slow.
-
-The car that does not move when the light goes green.
-
-The person who interrupts while you are in the middle of something.
+- The checkout line when the person ahead of you is slow.
+- The car that does not move when the light goes green.
+- The person who interrupts while you are in the middle of something.
 
 In all three, the thing to watch is the same — the account of the other person that is already written by the time you notice you are irritated. It arrives finished. Look at how fast it got there.
 
