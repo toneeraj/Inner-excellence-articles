@@ -15,6 +15,9 @@ Markdown conventions, all of which also read correctly on GitHub:
                     em dash becomes its attribution caption
     - item          becomes an instance in the marked list
 
+It also builds build/index.html and refreshes the index table in README.md,
+both from the same front matter, so no article list is ever maintained by hand.
+
 Usage:  python3 render.py [post.md ...]     (no args renders every post)
 Stdlib only, no install step.
 """
@@ -153,7 +156,7 @@ def render_post(path):
 
     page = (THEME / "post.html").read_text(encoding="utf-8")
     for token, value in (
-        ("__CSS__", (THEME / "post.css").read_text(encoding="utf-8").rstrip()),
+        ("__CSS__", stylesheet("post")),
         ("__TITLE__", inline(fields["title"])),
         ("__STANDFIRST__", inline(fields["standfirst"])),
         ("__META__", "\n".join(meta)),
@@ -165,7 +168,75 @@ def render_post(path):
     BUILD.mkdir(exist_ok=True)
     out = BUILD / f"{path.stem}.html"
     out.write_text(page, encoding="utf-8")
+    return out, fields
+
+
+def stylesheet(page):
+    """base.css always, plus the stylesheet for this page type."""
+    base = (THEME / "base.css").read_text(encoding="utf-8").rstrip()
+    extra = (THEME / f"{page}.css").read_text(encoding="utf-8").rstrip()
+    return f"{base}\n\n{extra}"
+
+
+# ---- index + README -----------------------------------------------------
+
+def render_index(entries):
+    """entries: list of (slug, fields), newest first."""
+    rows = []
+    for slug, f in entries:
+        stamp = f"Sent {dashed(f['originally_sent'])}"
+        if f.get("revision_shape"):
+            stamp += f" &middot; Shape {f['revision_shape']}"
+        rows.append(
+            "    <li>\n"
+            f"      <span class=\"pillar\">{inline(f['pillar'])}</span>\n"
+            f"      <h2><a href=\"{slug}.html\">{inline(f['title'])}</a></h2>\n"
+            f"      <p class=\"blurb\">{inline(f['standfirst'])}</p>\n"
+            f"      <span class=\"stamp\">{stamp}</span>\n"
+            "    </li>"
+        )
+
+    count = f"{len(entries)} article" + ("s" if len(entries) != 1 else "")
+    page = (THEME / "index.html").read_text(encoding="utf-8")
+    for token, value in (
+        ("__CSS__", stylesheet("index")),
+        ("__TITLE__", "Inner excellence articles"),
+        ("__STANDFIRST__", inline(
+            "Writing on attention, unselfing, and the ordinary day.")),
+        ("__COUNT__", count),
+        ("__ENTRIES__", "\n".join(rows)),
+    ):
+        page = page.replace(token, value)
+
+    BUILD.mkdir(exist_ok=True)
+    out = BUILD / "index.html"
+    out.write_text(page, encoding="utf-8")
     return out
+
+
+README_START = "<!-- index:start -->"
+README_END = "<!-- index:end -->"
+
+
+def update_readme(entries):
+    """Rewrite the README index table between the markers. Same source."""
+    readme = ROOT / "README.md"
+    text = readme.read_text(encoding="utf-8")
+    if README_START not in text:
+        return None
+
+    rows = ["| Pillar | Title | Sent | Shape |", "|---|---|---|---|"]
+    for slug, f in entries:
+        rows.append(
+            f"| {f['pillar']} | [{f['title']}](posts/{slug}.md) "
+            f"| {f['originally_sent']} | {f.get('revision_shape', '')} |")
+    block = f"{README_START}\n" + "\n".join(rows) + f"\n{README_END}"
+
+    updated = re.sub(
+        re.escape(README_START) + r".*?" + re.escape(README_END),
+        lambda _: block, text, flags=re.S)
+    readme.write_text(updated, encoding="utf-8")
+    return readme
 
 
 def main(argv):
@@ -173,10 +244,26 @@ def main(argv):
     if not targets:
         print("no posts found in posts/", file=sys.stderr)
         return 1
+
     for path in targets:
-        out = render_post(path)
+        out, _ = render_post(path)
         print(f"{path.relative_to(ROOT)}  ->  {out.relative_to(ROOT)}  "
               f"({out.stat().st_size:,} bytes)")
+
+    # the index always covers every post, not just the ones just rendered
+    entries = []
+    for path in sorted(POSTS.glob("*.md")):
+        fields, _ = parse_front_matter(path.read_text(encoding="utf-8"))
+        entries.append((path.stem, fields))
+    entries.sort(key=lambda e: str(e[1]["originally_sent"]), reverse=True)
+
+    index = render_index(entries)
+    print(f"{len(entries)} post(s)  ->  {index.relative_to(ROOT)}  "
+          f"({index.stat().st_size:,} bytes)")
+
+    readme = update_readme(entries)
+    if readme:
+        print(f"{len(entries)} post(s)  ->  {readme.relative_to(ROOT)} (index table)")
     return 0
 
 

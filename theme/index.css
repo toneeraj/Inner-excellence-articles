@@ -1,0 +1,79 @@
+/* ---- the collection: entries hanging off the same line ------------- */
+
+.entries {
+  list-style: none;
+  margin: 0;
+  padding-left: var(--rail);
+  border-left: 1px solid var(--rule);
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.entries li {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  max-width: var(--measure);
+}
+
+.entries li::before {
+  content: "";
+  position: absolute;
+  left: calc(var(--rail) * -1);
+  top: 0.95em;
+  width: calc(var(--rail) - 0.95rem);
+  height: 1px;
+  background: var(--accent);
+}
+
+.entries .pillar {
+  font-family: var(--mono);
+  font-size: 0.695rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.entries h2 {
+  margin: 0;
+  font-size: clamp(1.6rem, 1.35rem + 1.1vw, 2.15rem);
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: -0.016em;
+  text-wrap: balance;
+}
+
+.entries h2 a {
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 120ms ease;
+}
+.entries h2 a:hover,
+.entries h2 a:focus-visible { border-bottom-color: var(--accent); }
+.entries h2 a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+
+.entries .blurb {
+  margin: 0;
+  font-size: var(--body);
+  font-style: italic;
+  font-weight: 300;
+  line-height: 1.6;
+  color: var(--ink-soft);
+  text-wrap: pretty;
+}
+
+.entries .stamp {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.055em;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .entries h2 a { transition: none; }
+}
