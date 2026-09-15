@@ -40,7 +40,11 @@
   --accent:   #86C2AA;
 }
 
+*, *::before, *::after { box-sizing: border-box; }
+img { max-width: 100%; height: auto; }
+
 body {
+  margin: 0;
   background: var(--ground);
   color: var(--ink);
   font-family: var(--serif);

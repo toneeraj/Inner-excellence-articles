@@ -57,6 +57,11 @@ def parse_front_matter(text):
 
 # ---- inline typography --------------------------------------------------
 
+def attr(text):
+    """Escape for an HTML attribute — meta tags take plain text, not entities."""
+    return html.escape(text, quote=True)
+
+
 def inline(text):
     """Escape, then apply typographic niceties, then emphasis."""
     out = html.escape(text, quote=False)
@@ -159,6 +164,7 @@ def render_post(path):
         ("__CSS__", stylesheet("post")),
         ("__TITLE__", inline(fields["title"])),
         ("__STANDFIRST__", inline(fields["standfirst"])),
+        ("__DESCRIPTION__", attr(fields["standfirst"])),
         ("__META__", "\n".join(meta)),
         ("__BODY__", render_body(body)),
         ("__SOURCES__", sources),
@@ -179,6 +185,9 @@ def stylesheet(page):
 
 
 # ---- index + README -----------------------------------------------------
+
+BLURB = "Writing on attention, unselfing, and the ordinary day."
+
 
 def render_index(entries):
     """entries: list of (slug, fields), newest first."""
@@ -201,8 +210,8 @@ def render_index(entries):
     for token, value in (
         ("__CSS__", stylesheet("index")),
         ("__TITLE__", "Inner excellence articles"),
-        ("__STANDFIRST__", inline(
-            "Writing on attention, unselfing, and the ordinary day.")),
+        ("__STANDFIRST__", inline(BLURB)),
+        ("__DESCRIPTION__", attr(BLURB)),
         ("__COUNT__", count),
         ("__ENTRIES__", "\n".join(rows)),
     ):
