@@ -43,6 +43,11 @@ both come from the same front matter, so there is no list to keep in sync.
 
 Push to `main`. The Pages workflow runs `render.py` and deploys the site.
 
+One-time setup, already done: **Settings → Pages → Build and deployment →
+Source: GitHub Actions**. The workflow cannot set this itself — `GITHUB_TOKEN`
+is not permitted to create a Pages site — so if deploys fail with
+`Get Pages site failed. Error: Not Found`, that switch is off.
+
 To build locally:
 
 ```sh
