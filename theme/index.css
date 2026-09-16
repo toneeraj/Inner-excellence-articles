@@ -50,6 +50,19 @@
 }
 .wordmark:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 
+.rail-link {
+  font-family: var(--mono);
+  font-size: 0.705rem;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  align-self: flex-start;
+  margin-top: -0.6rem;
+}
+.rail-link:hover, .rail-link:focus-visible { border-bottom-color: var(--accent); }
+.rail-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+
 .rail-label {
   display: block;
   font-size: 0.66rem;
@@ -136,6 +149,13 @@
   color: var(--ink);
   border-left-color: var(--accent);
 }
+
+/* declared, but nothing written under it yet — present, not offered */
+.facets button:disabled {
+  cursor: default;
+  opacity: 0.62;
+}
+.facets button:disabled:hover { color: var(--muted); }
 
 .facets .count {
   font-variant-numeric: tabular-nums;
@@ -288,7 +308,20 @@
   /* above the collection, the rail reads as a toolbar, not a sidebar */
   .rail { gap: 1.35rem; }
   .wordmark { padding-bottom: 1.1rem; }
-  .rail-label { margin-bottom: 0.6rem; }
+  .rail-link {
+  font-family: var(--mono);
+  font-size: 0.705rem;
+  letter-spacing: 0.05em;
+  color: var(--accent);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  align-self: flex-start;
+  margin-top: -0.6rem;
+}
+.rail-link:hover, .rail-link:focus-visible { border-bottom-color: var(--accent); }
+.rail-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+
+.rail-label { margin-bottom: 0.6rem; }
 
   .facets ul { flex-direction: row; flex-wrap: wrap; gap: 0.4rem; }
   .facets button {

@@ -34,10 +34,12 @@ the markers are overwritten on the next build.
 
 ```
 posts/*.md        the source        — words only, one file per article
+pillars.md        the framework     — the declared pillars, in their order
 theme/base.css    design: shared    — palette, type, page frame
 theme/post.css    design: article   — the reading column
 theme/index.css   design: index     — the collection list
 theme/index.js    behaviour: index  — search and pillar filters, in-page
+theme/about.css   design: about     — the orientation page
 theme/*.html      page skeletons    — slots the renderer fills
 render.py         the renderer      — the only thing that joins the two
 build/            output            — generated, gitignored, never edited
@@ -50,6 +52,22 @@ a published page cannot drift from the words in `posts/`.
 The article list is generated too — the site index and the README table above
 both come from the same front matter, so there is no list to keep in sync.
 
+## The framework the writing sits inside
+
+`pillars.md` declares the pillars — P1 through P4, and the movement they sit
+inside — each with the gloss a first-time reader gets. It is the source of
+truth, not a description of one:
+
+- the rail on the index lists every declared pillar, in the order of the file
+- a pillar with nothing written under it yet still appears, dimmed, showing an
+  em dash instead of a count — the gap is visible rather than invisible
+- `build/about.html` ("What this is") is generated from the same file, so the
+  explanation and the filters can never disagree
+- `render.py` refuses to build a post whose `pillar:` is not declared there, so
+  a typo cannot quietly invent a fifth pillar
+
+To add or rename a pillar, edit `pillars.md`. Nothing else needs touching.
+
 ## Finding a piece on the site
 
 The index carries a standing left rail: a search box, and the pillars with a
@@ -61,6 +79,11 @@ searched are generated from the same front matter as the entries themselves.
     pillars       click to filter, click the same one again to undo it
     /             jumps to the search box; Escape clears it
     ?q=&pillar=   the current view, as a link worth sharing
+
+Someone arriving cold has one link to start from: **What this is**, in the rail
+and in every article's footer. It carries the three witnesses the practice
+rests on, the pillars with their glosses, and how to read the `Sent` and
+`Shape` stamps under each title.
 
 All of it is enhancement. With scripting off the rail's controls stay hidden
 and the full list still renders — the page is plain HTML underneath.
