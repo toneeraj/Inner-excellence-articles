@@ -26,11 +26,42 @@ import html
 import pathlib
 import re
 import sys
+from urllib.parse import quote
 
 ROOT = pathlib.Path(__file__).resolve().parent
 POSTS = ROOT / "posts"
+PILLARS = ROOT / "pillars.md"
 THEME = ROOT / "theme"
 BUILD = ROOT / "build"
+
+
+# ---- the declared framework --------------------------------------------
+
+_pillars = None
+
+
+def pillars():
+    """[(name, gloss)] from pillars.md, in file order — the whole framework.
+
+    Declared, not inferred from the posts, so a pillar nobody has written
+    under yet still exists on the site instead of quietly disappearing.
+    """
+    global _pillars
+    if _pillars is None:
+        out, name, gloss = [], None, []
+        for line in PILLARS.read_text(encoding="utf-8").splitlines():
+            if line.startswith("## "):
+                if name:
+                    out.append((name, " ".join(gloss).strip()))
+                name, gloss = line[3:].strip(), []
+            elif name and line.strip():
+                gloss.append(line.strip())
+        if name:
+            out.append((name, " ".join(gloss).strip()))
+        if not out:
+            raise ValueError("pillars.md declares no pillars")
+        _pillars = out
+    return _pillars
 
 
 # ---- front matter -------------------------------------------------------
@@ -149,6 +180,12 @@ def render_post(path):
         if required not in fields:
             raise ValueError(f"{path.name}: front matter is missing '{required}'")
 
+    declared = [name for name, _ in pillars()]
+    if fields["pillar"] not in declared:
+        raise ValueError(
+            f"{path.name}: pillar {fields['pillar']!r} is not declared in "
+            f"pillars.md. Declared: " + "; ".join(declared))
+
     meta = [f'      <span class="pillar">{inline(fields["pillar"])}</span>',
             f'      <span>Sent {dashed(fields["originally_sent"])}</span>']
     if fields.get("re_rendered"):
@@ -236,24 +273,73 @@ def render_index(entries):
 
 def facet(value, label, short, count):
     """Two labels: the full pillar on the rail, its stem on a narrow screen."""
+    empty = " disabled aria-disabled=\"true\"" if count == 0 else ""
+    shown = "&mdash;" if count == 0 else count
+    title = " title=\"No article under this pillar yet\"" if count == 0 else ""
     return (f"        <li><button type=\"button\" data-pillar=\"{attr(value)}\" "
-            f"aria-pressed=\"false\">"
+            f"aria-pressed=\"false\"{empty}{title}>"
             f"<span class=\"facet-full\">{label}</span>"
             f"<span class=\"facet-short\">{short}</span>"
-            f"<span class=\"count\">{count}</span></button></li>")
+            f"<span class=\"count\">{shown}</span></button></li>")
+
+
+def counted(entries):
+    """How many articles stand under each pillar — zero is a real answer."""
+    counts = {name: 0 for name, _ in pillars()}
+    for _, f in entries:
+        counts[f["pillar"]] += 1
+    return counts
 
 
 def render_filters(entries):
-    """The pillar list in the rail — counted from the posts, never by hand."""
-    counts = {}
-    for _, f in entries:
-        counts[f["pillar"]] = counts.get(f["pillar"], 0) + 1
-
+    """The pillar list in the rail: the declared framework, in its own order."""
+    counts = counted(entries)
     rows = [facet("all", "All articles", "All", len(entries))]
-    for pillar in sorted(counts):
-        stem = pillar.split(" — ")[0]
-        rows.append(facet(pillar, inline(pillar), inline(stem), counts[pillar]))
+    for name, _ in pillars():
+        stem = name.split(" — ")[0]
+        rows.append(facet(name, inline(name), inline(stem), counts[name]))
     return "\n".join(rows)
+
+
+# ---- what this is -------------------------------------------------------
+
+ABOUT_BLURB = ("The framework these pieces are written inside, and how to read "
+               "the dates under them.")
+
+
+def render_about(entries):
+    """build/about.html — the same four pillars the rail filters by."""
+    counts = counted(entries)
+    rows = []
+    for name, gloss in pillars():
+        held = counts[name]
+        if held:
+            label = (f"<a class=\"name\" href=\"./?pillar={quote(name)}\">"
+                     f"{inline(name)}</a>")
+            tally = f"{held} article" + ("s" if held != 1 else "")
+            tally = f"<span class=\"held\">{tally}</span>"
+        else:
+            label = f"<span class=\"name\">{inline(name)}</span>"
+            tally = "<span class=\"held none\">No article yet</span>"
+        rows.append(f"      <dt>{label}{tally}</dt>\n"
+                    f"      <dd>{inline(gloss)}</dd>")
+
+    count = f"{len(entries)} article" + ("s" if len(entries) != 1 else "")
+    page = (THEME / "about.html").read_text(encoding="utf-8")
+    for token, value in (
+        ("__CSS__", stylesheet("about")),
+        ("__TITLE__", "What this is"),
+        ("__STANDFIRST__", inline(ABOUT_BLURB)),
+        ("__DESCRIPTION__", attr(ABOUT_BLURB)),
+        ("__COUNT__", count),
+        ("__PILLARS__", "\n".join(rows)),
+    ):
+        page = page.replace(token, value)
+
+    BUILD.mkdir(exist_ok=True)
+    out = BUILD / "about.html"
+    out.write_text(page, encoding="utf-8")
+    return out
 
 
 README_START = "<!-- index:start -->"
@@ -302,6 +388,10 @@ def main(argv):
     index = render_index(entries)
     print(f"{len(entries)} post(s)  ->  {index.relative_to(ROOT)}  "
           f"({index.stat().st_size:,} bytes)")
+
+    about = render_about(entries)
+    print(f"{len(pillars())} pillar(s)  ->  {about.relative_to(ROOT)}  "
+          f"({about.stat().st_size:,} bytes)")
 
     readme = update_readme(entries)
     if readme:
