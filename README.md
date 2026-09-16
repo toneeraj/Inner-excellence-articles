@@ -37,6 +37,7 @@ posts/*.md        the source        — words only, one file per article
 theme/base.css    design: shared    — palette, type, page frame
 theme/post.css    design: article   — the reading column
 theme/index.css   design: index     — the collection list
+theme/index.js    behaviour: index  — search and pillar filters, in-page
 theme/*.html      page skeletons    — slots the renderer fills
 render.py         the renderer      — the only thing that joins the two
 build/            output            — generated, gitignored, never edited
@@ -48,6 +49,21 @@ a published page cannot drift from the words in `posts/`.
 
 The article list is generated too — the site index and the README table above
 both come from the same front matter, so there is no list to keep in sync.
+
+## Finding a piece on the site
+
+The index carries a standing left rail: a search box, and the pillars with a
+count each. Both work in the page — no search index, no requests, nothing to
+rebuild when a post is added, because the pillar list and the text being
+searched are generated from the same front matter as the entries themselves.
+
+    search        matches title, standfirst and pillar; every word must hit
+    pillars       click to filter, click the same one again to undo it
+    /             jumps to the search box; Escape clears it
+    ?q=&pillar=   the current view, as a link worth sharing
+
+All of it is enhancement. With scripting off the rail's controls stay hidden
+and the full list still renders — the page is plain HTML underneath.
 
 ## Publishing an article
 
