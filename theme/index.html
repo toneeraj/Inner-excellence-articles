@@ -15,28 +15,59 @@
 <style>
 __CSS__
 </style>
+<script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
 
-<div class="page">
-  <header>
-    <div class="meta">
-      <span class="pillar">Inner excellence</span>
-      <span>__COUNT__</span>
-    </div>
-    <h1>__TITLE__</h1>
-    <p class="standfirst">__STANDFIRST__</p>
-  </header>
+<div class="shell" data-collection>
+  <aside class="rail">
+    <a class="wordmark" href="./">Inner excellence</a>
 
-  <ul class="entries">
+    <form class="finder js-only" role="search" onsubmit="return false">
+      <label class="sr-only" for="q">Search articles</label>
+      <input id="q" type="search" placeholder="Search" autocomplete="off"
+             autocapitalize="off" spellcheck="false" enterkeyhint="search">
+      <kbd aria-hidden="true">/</kbd>
+    </form>
+
+    <nav class="facets js-only" aria-label="Filter by pillar">
+      <span class="rail-label" id="facet-label">Pillars</span>
+      <ul aria-labelledby="facet-label">
+__FILTERS__
+      </ul>
+    </nav>
+
+    <p class="tally js-only" id="tally" aria-live="polite">__COUNT__</p>
+  </aside>
+
+  <main class="stream">
+    <header>
+      <div class="meta">
+        <span class="pillar">Collected</span>
+        <span>__COUNT__</span>
+      </div>
+      <h1>__TITLE__</h1>
+      <p class="standfirst">__STANDFIRST__</p>
+    </header>
+
+    <ul class="entries">
 __ENTRIES__
-  </ul>
+    </ul>
 
-  <footer>
-    <span class="src-label">About</span>
-    <span>Each piece takes a passage from a teacher and works it against a</span>
-    <span>stretch of an ordinary day. The passage is the fixed part.</span>
-  </footer>
+    <p class="empty" id="empty" hidden>
+      Nothing here matches that. <button type="button" id="clear">Clear the filters</button>
+    </p>
+
+    <footer>
+      <span class="src-label">About</span>
+      <span>Each piece takes a passage from a teacher and works it against a</span>
+      <span>stretch of an ordinary day. The passage is the fixed part.</span>
+    </footer>
+  </main>
 </div>
+
+<script>
+__JS__
+</script>
 </body>
 </html>

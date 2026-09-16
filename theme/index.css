@@ -1,3 +1,161 @@
+/* ---- the frame: a standing rail, then the collection ---------------- */
+
+.shell {
+  max-width: calc(var(--measure) + var(--rail) + 20rem);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+  padding-block: 5rem 5.5rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 3rem;
+}
+
+@media (min-width: 62rem) {
+  .shell {
+    grid-template-columns: 13.5rem minmax(0, 1fr);
+    gap: 4.5rem;
+    align-items: start;
+  }
+  .rail {
+    position: sticky;
+    top: 3.5rem;
+    max-height: calc(100vh - 7rem);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+}
+
+/* ---- the rail ------------------------------------------------------- */
+
+.rail {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  font-family: var(--mono);
+  font-size: 0.735rem;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.wordmark {
+  font-family: var(--mono);
+  font-size: 0.705rem;
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--accent);
+  text-decoration: none;
+  padding-bottom: 1.4rem;
+  border-bottom: 1px solid var(--rule);
+}
+.wordmark:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+
+.rail-label {
+  display: block;
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.9rem;
+}
+
+/* search */
+
+.finder { position: relative; }
+
+.finder input {
+  width: 100%;
+  appearance: none;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  padding: 0.62rem 2.1rem 0.62rem 0.7rem;
+  font-family: var(--mono);
+  font-size: 0.775rem;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  transition: border-color 120ms ease;
+}
+.finder input::placeholder { color: var(--muted); }
+.finder input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+.finder input::-webkit-search-cancel-button { filter: grayscale(1) opacity(0.6); }
+
+.finder kbd {
+  position: absolute;
+  right: 0.55rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--mono);
+  font-size: 0.66rem;
+  line-height: 1;
+  padding: 0.2rem 0.35rem;
+  color: var(--muted);
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  pointer-events: none;
+}
+.finder input:focus ~ kbd { opacity: 0; }
+
+/* pillars */
+
+.facets ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.facets button {
+  width: 100%;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.6rem;
+  text-align: left;
+  background: none;
+  border: 0;
+  border-left: 2px solid transparent;
+  padding: 0.5rem 0.2rem 0.5rem 0.65rem;
+  font-family: var(--mono);
+  font-size: 0.715rem;
+  line-height: 1.5;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+  cursor: pointer;
+  transition: color 120ms ease, border-color 120ms ease;
+}
+.facets button:hover { color: var(--ink); }
+.facets button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.facets button[aria-pressed="true"] {
+  color: var(--ink);
+  border-left-color: var(--accent);
+}
+
+.facets .count {
+  font-variant-numeric: tabular-nums;
+  font-size: 0.68rem;
+  color: var(--muted);
+}
+.facets button[aria-pressed="true"] .count { color: var(--accent); }
+
+.tally {
+  margin: 0;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--rule);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
+  color: var(--muted);
+}
+.is-filtered .tally { color: var(--accent); }
+
 /* ---- the collection: entries hanging off the same line ------------- */
 
 .entries {
@@ -74,6 +232,88 @@
   font-variant-numeric: tabular-nums;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .entries h2 a { transition: none; }
+/* ---- nothing matched ------------------------------------------------ */
+
+.empty {
+  margin: 0;
+  padding-left: var(--rail);
+  font-size: var(--body);
+  font-style: italic;
+  font-weight: 300;
+  color: var(--muted);
 }
+
+.empty button {
+  background: none;
+  border: 0;
+  border-bottom: 1px solid var(--accent);
+  padding: 0;
+  font: inherit;
+  color: var(--accent);
+  cursor: pointer;
+}
+.empty button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* ---- enhancement only: hidden until the script says otherwise ------- */
+
+.js-only { display: none; }
+.js .js-only { display: block; }
+
+[hidden] { display: none !important; }
+
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 40rem) {
+  .shell { padding-block: 3.25rem 3.75rem; padding-inline: 1.25rem; gap: 2.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .entries h2 a,
+  .facets button,
+  .finder input { transition: none; }
+}
+
+/* the rail's full pillar names only fit the rail itself */
+.facet-short { display: none; }
+
+@media (max-width: 61.999rem) {
+  /* above the collection, the rail reads as a toolbar, not a sidebar */
+  .rail { gap: 1.35rem; }
+  .wordmark { padding-bottom: 1.1rem; }
+  .rail-label { margin-bottom: 0.6rem; }
+
+  .facets ul { flex-direction: row; flex-wrap: wrap; gap: 0.4rem; }
+  .facets button {
+    width: auto;
+    border: 1px solid var(--rule);
+    border-left-width: 1px;
+    border-radius: 999px;
+    padding: 0.42rem 0.75rem;
+    gap: 0.45rem;
+  }
+  .facets button[aria-pressed="true"] {
+    border-color: var(--accent);
+    border-left-color: var(--accent);
+  }
+  .facet-full { display: none; }
+  .facet-short { display: inline; }
+
+  .tally { padding-top: 1.1rem; }
+}
+
+/* the keyboard hint is for people who have a keyboard */
+@media (hover: none), (max-width: 61.999rem) {
+  .finder kbd { display: none; }
+  .finder input { padding-right: 0.7rem; }
+}
+
+/* with the live tally in the rail, the masthead need not count too */
+.js .stream > header .meta { display: none; }

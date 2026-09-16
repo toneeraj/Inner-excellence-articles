@@ -184,6 +184,12 @@ def stylesheet(page):
     return f"{base}\n\n{extra}"
 
 
+def script(page):
+    """theme/<page>.js, inlined. Absent is fine — the page just stays still."""
+    path = THEME / f"{page}.js"
+    return path.read_text(encoding="utf-8").rstrip() if path.exists() else ""
+
+
 # ---- index + README -----------------------------------------------------
 
 BLURB = "Writing on attention, unselfing, and the ordinary day."
@@ -196,8 +202,11 @@ def render_index(entries):
         stamp = f"Sent {dashed(f['originally_sent'])}"
         if f.get("revision_shape"):
             stamp += f" &middot; Shape {f['revision_shape']}"
+        # what the in-page search reads: everything the entry shows, lowercased
+        haystack = " ".join(str(f.get(k, "")) for k in
+                            ("title", "standfirst", "pillar", "originally_sent")).lower()
         rows.append(
-            "    <li>\n"
+            f"    <li data-pillar=\"{attr(f['pillar'])}\" data-search=\"{attr(haystack)}\">\n"
             f"      <span class=\"pillar\">{inline(f['pillar'])}</span>\n"
             f"      <h2><a href=\"{slug}.html\">{inline(f['title'])}</a></h2>\n"
             f"      <p class=\"blurb\">{inline(f['standfirst'])}</p>\n"
@@ -209,10 +218,12 @@ def render_index(entries):
     page = (THEME / "index.html").read_text(encoding="utf-8")
     for token, value in (
         ("__CSS__", stylesheet("index")),
+        ("__JS__", script("index")),
         ("__TITLE__", "Inner excellence articles"),
         ("__STANDFIRST__", inline(BLURB)),
         ("__DESCRIPTION__", attr(BLURB)),
         ("__COUNT__", count),
+        ("__FILTERS__", render_filters(entries)),
         ("__ENTRIES__", "\n".join(rows)),
     ):
         page = page.replace(token, value)
@@ -221,6 +232,28 @@ def render_index(entries):
     out = BUILD / "index.html"
     out.write_text(page, encoding="utf-8")
     return out
+
+
+def facet(value, label, short, count):
+    """Two labels: the full pillar on the rail, its stem on a narrow screen."""
+    return (f"        <li><button type=\"button\" data-pillar=\"{attr(value)}\" "
+            f"aria-pressed=\"false\">"
+            f"<span class=\"facet-full\">{label}</span>"
+            f"<span class=\"facet-short\">{short}</span>"
+            f"<span class=\"count\">{count}</span></button></li>")
+
+
+def render_filters(entries):
+    """The pillar list in the rail — counted from the posts, never by hand."""
+    counts = {}
+    for _, f in entries:
+        counts[f["pillar"]] = counts.get(f["pillar"], 0) + 1
+
+    rows = [facet("all", "All articles", "All", len(entries))]
+    for pillar in sorted(counts):
+        stem = pillar.split(" — ")[0]
+        rows.append(facet(pillar, inline(pillar), inline(stem), counts[pillar]))
+    return "\n".join(rows)
 
 
 README_START = "<!-- index:start -->"
