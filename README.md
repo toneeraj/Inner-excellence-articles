@@ -14,6 +14,7 @@ was first sent and the revision shape it currently stands in.
 <!-- index:start -->
 | Pillar | Title | Sent | Shape |
 |---|---|---|---|
+| The movement — effort to look, no effort in the seeing | [Let us not be bothered by the waves.](posts/2026-09-16-movement-let-us-not-be-bothered-by-the-waves.md) | 2026-09-16 |  |
 | P4 — Choose What You Worship | [Let us be a vine](posts/2026-09-15-p4-let-us-be-a-vine.md) | 2026-09-15 | 21 |
 | P1 — The Default Setting | [Let us look at the person, not at our picture of them](posts/2026-09-12-p1-let-us-look-at-the-person.md) | 2026-09-12 | 21 |
 | The movement — effort to look, no effort in the seeing | [Let us get wet in the fog](posts/2026-09-11-movement-let-us-get-wet-in-the-fog.md) | 2026-09-11 | 21 |
