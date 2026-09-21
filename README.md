@@ -14,6 +14,7 @@ was first sent and the revision shape it currently stands in.
 <!-- index:start -->
 | Pillar | Title | Sent | Shape |
 |---|---|---|---|
+| The movement — effort to look, no effort in the seeing | [Let us put the light on the rope](posts/2026-09-21-movement-let-us-put-the-light-on-the-rope.md) | 2026-09-21 |  |
 | P4 — Choose What You Worship | [Let us not be afraid to stop counting](posts/2026-09-20-p4-let-us-not-be-afraid-to-stop-counting.md) | 2026-09-20 |  |
 | P3 — Attention Is a Moral Act | [Let us not wait for a better hour](posts/2026-09-19-p3-let-us-not-wait-for-a-better-hour.md) | 2026-09-19 |  |
 | P1 — The Default Setting | [Let us arrive without the answer](posts/2026-09-17-p1-let-us-arrive-without-the-answer.md) | 2026-09-17 |  |
