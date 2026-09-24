@@ -14,6 +14,7 @@ was first sent and the revision shape it currently stands in.
 <!-- index:start -->
 | Pillar | Title | Sent | Shape |
 |---|---|---|---|
+| P3 — Attention Is a Moral Act | [Let us not stop at warmth](posts/2026-09-24-p3-let-us-not-stop-at-warmth.md) | 2026-09-24 |  |
 | P1 — The Default Setting | [Let us give the wool](posts/2026-09-22-p1-let-us-give-the-wool.md) | 2026-09-22 |  |
 | The movement — effort to look, no effort in the seeing | [Let us put the light on the rope](posts/2026-09-21-movement-let-us-put-the-light-on-the-rope.md) | 2026-09-21 |  |
 | P4 — Choose What You Worship | [Let us not be afraid to stop counting](posts/2026-09-20-p4-let-us-not-be-afraid-to-stop-counting.md) | 2026-09-20 |  |
