@@ -14,6 +14,7 @@ was first sent and the revision shape it currently stands in.
 <!-- index:start -->
 | Pillar | Title | Sent | Shape |
 |---|---|---|---|
+| The movement — effort to look, no effort in the seeing | [Let us not look for the trace](posts/2026-09-26-movement-let-us-not-look-for-the-trace.md) | 2026-09-26 |  |
 | P4 — Choose What You Worship | [Let us not worship being seen as smart](posts/2026-09-25-p4-let-us-not-worship-being-seen-as-smart.md) | 2026-09-25 |  |
 | P3 — Attention Is a Moral Act | [Let us not stop at warmth](posts/2026-09-24-p3-let-us-not-stop-at-warmth.md) | 2026-09-24 |  |
 | P1 — The Default Setting | [Let us give the wool](posts/2026-09-22-p1-let-us-give-the-wool.md) | 2026-09-22 |  |
