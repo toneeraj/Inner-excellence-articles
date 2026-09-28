@@ -14,6 +14,7 @@ was first sent and the revision shape it currently stands in.
 <!-- index:start -->
 | Pillar | Title | Sent | Shape |
 |---|---|---|---|
+| P2 — This Is Water | [Let us stop counting our own experience as proof](posts/2026-09-28-p2-let-us-stop-counting-our-own-experience-as-proof.md) | 2026-09-28 |  |
 | P1 — The Default Setting | [Let us call it a rascal](posts/2026-09-27-p1-let-us-call-it-a-rascal.md) | 2026-09-27 |  |
 | The movement — effort to look, no effort in the seeing | [Let us not look for the trace](posts/2026-09-26-movement-let-us-not-look-for-the-trace.md) | 2026-09-26 |  |
 | P4 — Choose What You Worship | [Let us not worship being seen as smart](posts/2026-09-25-p4-let-us-not-worship-being-seen-as-smart.md) | 2026-09-25 |  |
