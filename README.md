@@ -14,6 +14,7 @@ was first sent and the revision shape it currently stands in.
 <!-- index:start -->
 | Pillar | Title | Sent | Shape |
 |---|---|---|---|
+| The movement — effort to look, no effort in the seeing | [Let us be the one who turned](posts/2026-10-01-movement-let-us-be-the-one-who-turned.md) | 2026-10-01 |  |
 | P4 — Choose What You Worship | [Let us not wait to be told](posts/2026-09-30-p4-let-us-not-wait-to-be-told.md) | 2026-09-30 |  |
 | P3 — Attention Is a Moral Act | [Let us keep the second possibility](posts/2026-09-29-p3-let-us-keep-the-second-possibility.md) | 2026-09-29 |  |
 | P2 — This Is Water | [Let us stop counting our own experience as proof](posts/2026-09-28-p2-let-us-stop-counting-our-own-experience-as-proof.md) | 2026-09-28 |  |
