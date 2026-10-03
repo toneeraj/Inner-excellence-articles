@@ -14,6 +14,7 @@ was first sent and the revision shape it currently stands in.
 <!-- index:start -->
 | Pillar | Title | Sent | Shape |
 |---|---|---|---|
+| P2 — This Is Water | [Let us not let natural settle it](posts/2026-10-03-p2-let-us-not-let-natural-settle-it.md) | 2026-10-03 |  |
 | P1 — The Default Setting | [Let us be in the speaker's mind](posts/2026-10-02-p1-let-us-be-in-the-speakers-mind.md) | 2026-10-02 |  |
 | The movement — effort to look, no effort in the seeing | [Let us be the one who turned](posts/2026-10-01-movement-let-us-be-the-one-who-turned.md) | 2026-10-01 |  |
 | P4 — Choose What You Worship | [Let us not wait to be told](posts/2026-09-30-p4-let-us-not-wait-to-be-told.md) | 2026-09-30 |  |
