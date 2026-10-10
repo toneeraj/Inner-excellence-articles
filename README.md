@@ -14,6 +14,7 @@ was first sent and the revision shape it currently stands in.
 <!-- index:start -->
 | Pillar | Title | Sent | Shape |
 |---|---|---|---|
+| P4 — Choose What You Worship | [Let us know what we are leaning on](posts/2026-10-10-p4-let-us-know-what-we-are-leaning-on.md) | 2026-10-10 |  |
 | P2 — This Is Water | [Let us count ourselves in](posts/2026-10-08-p2-let-us-count-ourselves-in.md) | 2026-10-08 |  |
 | P1 — The Default Setting | [Let us keep our own opinion of ourselves](posts/2026-10-07-p1-let-us-keep-our-own-opinion-of-ourselves.md) | 2026-10-07 |  |
 | P4 — Choose What You Worship | [Let us not hold the act back](posts/2026-10-06-p4-let-us-not-hold-the-act-back.md) | 2026-10-06 |  |
