@@ -14,6 +14,7 @@ was first sent and the revision shape it currently stands in.
 <!-- index:start -->
 | Pillar | Title | Sent | Shape |
 |---|---|---|---|
+| P3 — Attention Is a Moral Act | [Let us know which part was the room](posts/2026-10-14-p3-let-us-know-which-part-was-the-room.md) | 2026-10-14 |  |
 | The movement — effort to look, no effort in the seeing | [Let us not answer that question with our eyes](posts/2026-10-12-movement-let-us-not-answer-that-question-with-our-eyes.md) | 2026-10-12 |  |
 | P4 — Choose What You Worship | [Let us know what we are leaning on](posts/2026-10-10-p4-let-us-know-what-we-are-leaning-on.md) | 2026-10-10 |  |
 | P2 — This Is Water | [Let us count ourselves in](posts/2026-10-08-p2-let-us-count-ourselves-in.md) | 2026-10-08 |  |
