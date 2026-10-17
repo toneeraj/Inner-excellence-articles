@@ -14,6 +14,7 @@ was first sent and the revision shape it currently stands in.
 <!-- index:start -->
 | Pillar | Title | Sent | Shape |
 |---|---|---|---|
+| P1 — The Default Setting | [Let us not carry the name](posts/2026-10-17-p1-let-us-not-carry-the-name.md) | 2026-10-17 |  |
 | The movement — effort to look, no effort in the seeing | [Let us know who moved](posts/2026-10-16-movement-let-us-know-who-moved.md) | 2026-10-16 |  |
 | P3 — Attention Is a Moral Act | [Let us know which part was the room](posts/2026-10-14-p3-let-us-know-which-part-was-the-room.md) | 2026-10-14 |  |
 | The movement — effort to look, no effort in the seeing | [Let us not answer that question with our eyes](posts/2026-10-12-movement-let-us-not-answer-that-question-with-our-eyes.md) | 2026-10-12 |  |
