@@ -14,6 +14,7 @@ was first sent and the revision shape it currently stands in.
 <!-- index:start -->
 | Pillar | Title | Sent | Shape |
 |---|---|---|---|
+| P3 — Attention Is a Moral Act | [Let us not need to see what it did](posts/2026-10-19-p3-let-us-not-need-to-see-what-it-did.md) | 2026-10-19 |  |
 | P2 — This Is Water | [Let us not keep an opinion where nothing can reach it](posts/2026-10-18-p2-let-us-not-keep-an-opinion-where-nothing-can-reach-it.md) | 2026-10-18 |  |
 | P1 — The Default Setting | [Let us not carry the name](posts/2026-10-17-p1-let-us-not-carry-the-name.md) | 2026-10-17 |  |
 | The movement — effort to look, no effort in the seeing | [Let us know who moved](posts/2026-10-16-movement-let-us-know-who-moved.md) | 2026-10-16 |  |
