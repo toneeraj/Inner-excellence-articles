@@ -14,6 +14,7 @@ was first sent and the revision shape it currently stands in.
 <!-- index:start -->
 | Pillar | Title | Sent | Shape |
 |---|---|---|---|
+| P4 — Choose What You Worship | [Let us not add the receipt](posts/2026-10-25-p4-let-us-not-add-the-receipt.md) | 2026-10-25 |  |
 | The movement — effort to look, no effort in the seeing | [Let us not be the one who stopped it](posts/2026-10-21-movement-let-us-not-be-the-one-who-stopped-it.md) | 2026-10-21 |  |
 | P4 — Choose What You Worship | [Let us be the same after good news](posts/2026-10-20-p4-let-us-be-the-same-after-good-news.md) | 2026-10-20 |  |
 | P3 — Attention Is a Moral Act | [Let us not need to see what it did](posts/2026-10-19-p3-let-us-not-need-to-see-what-it-did.md) | 2026-10-19 |  |
