@@ -14,6 +14,7 @@ was first sent and the revision shape it currently stands in.
 <!-- index:start -->
 | Pillar | Title | Sent | Shape |
 |---|---|---|---|
+| The movement — effort to look, no effort in the seeing | [Let us look at this one, not at this kind](posts/2026-10-26-movement-let-us-look-at-this-one-not-at-this-kind.md) | 2026-10-26 |  |
 | P4 — Choose What You Worship | [Let us not add the receipt](posts/2026-10-25-p4-let-us-not-add-the-receipt.md) | 2026-10-25 |  |
 | The movement — effort to look, no effort in the seeing | [Let us not be the one who stopped it](posts/2026-10-21-movement-let-us-not-be-the-one-who-stopped-it.md) | 2026-10-21 |  |
 | P4 — Choose What You Worship | [Let us be the same after good news](posts/2026-10-20-p4-let-us-be-the-same-after-good-news.md) | 2026-10-20 |  |
