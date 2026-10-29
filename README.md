@@ -14,6 +14,7 @@ was first sent and the revision shape it currently stands in.
 <!-- index:start -->
 | Pillar | Title | Sent | Shape |
 |---|---|---|---|
+| P3 — Attention Is a Moral Act | [Let us not say what we got out of it](posts/2026-10-29-p3-let-us-not-say-what-we-got-out-of-it.md) | 2026-10-29 |  |
 | P1 — The Default Setting | [Let us notice when the word changes](posts/2026-10-27-p1-let-us-notice-when-the-word-changes.md) | 2026-10-27 |  |
 | The movement — effort to look, no effort in the seeing | [Let us look at this one, not at this kind](posts/2026-10-26-movement-let-us-look-at-this-one-not-at-this-kind.md) | 2026-10-26 |  |
 | P4 — Choose What You Worship | [Let us not add the receipt](posts/2026-10-25-p4-let-us-not-add-the-receipt.md) | 2026-10-25 |  |
