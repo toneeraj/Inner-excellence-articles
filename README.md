@@ -14,6 +14,7 @@ was first sent and the revision shape it currently stands in.
 <!-- index:start -->
 | Pillar | Title | Sent | Shape |
 |---|---|---|---|
+| P2 — This Is Water | [Let us not take it as news](posts/2026-11-02-p2-let-us-not-take-it-as-news.md) | 2026-11-02 |  |
 | P1 — The Default Setting | [Let us keep our own out of it](posts/2026-11-01-p1-let-us-keep-our-own-out-of-it.md) | 2026-11-01 |  |
 | P4 — Choose What You Worship | [Let us be the same on the part nobody sees](posts/2026-10-30-p4-let-us-be-the-same-on-the-part-nobody-sees.md) | 2026-10-30 |  |
 | P3 — Attention Is a Moral Act | [Let us not say what we got out of it](posts/2026-10-29-p3-let-us-not-say-what-we-got-out-of-it.md) | 2026-10-29 |  |
