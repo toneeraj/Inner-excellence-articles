@@ -14,6 +14,8 @@ was first sent and the revision shape it currently stands in.
 <!-- index:start -->
 | Pillar | Title | Sent | Shape |
 |---|---|---|---|
+| The movement — effort to look, no effort in the seeing | [Let us tell ourselves something we can do](posts/2026-11-05-movement-let-us-tell-ourselves-something-we-can-do.md) | 2026-11-05 |  |
+| P4 — Choose What You Worship | [Let us choose which, not how much](posts/2026-11-04-p4-let-us-choose-which-not-how-much.md) | 2026-11-04 |  |
 | P2 — This Is Water | [Let us not take it as news](posts/2026-11-02-p2-let-us-not-take-it-as-news.md) | 2026-11-02 |  |
 | P1 — The Default Setting | [Let us keep our own out of it](posts/2026-11-01-p1-let-us-keep-our-own-out-of-it.md) | 2026-11-01 |  |
 | P4 — Choose What You Worship | [Let us be the same on the part nobody sees](posts/2026-10-30-p4-let-us-be-the-same-on-the-part-nobody-sees.md) | 2026-10-30 |  |
