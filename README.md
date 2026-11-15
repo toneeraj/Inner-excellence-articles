@@ -14,6 +14,7 @@ was first sent and the revision shape it currently stands in.
 <!-- index:start -->
 | Pillar | Title | Sent | Shape |
 |---|---|---|---|
+| The movement — effort to look, no effort in the seeing | [Let us not do the digesting](posts/2026-11-15-movement-let-us-not-do-the-digesting.md) | 2026-11-15 |  |
 | The movement — effort to look, no effort in the seeing | [Let us not work our way out of it](posts/2026-11-10-movement-let-us-not-work-our-way-out-of-it.md) | 2026-11-10 |  |
 | P3 — Attention Is a Moral Act | [Let us not give ourselves a reason](posts/2026-11-08-p3-let-us-not-give-ourselves-a-reason.md) | 2026-11-08 |  |
 | P2 — This Is Water | [Let us not put the answer in the question](posts/2026-11-07-p2-let-us-not-put-the-answer-in-the-question.md) | 2026-11-07 |  |
