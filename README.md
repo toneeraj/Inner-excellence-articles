@@ -14,6 +14,7 @@ was first sent and the revision shape it currently stands in.
 <!-- index:start -->
 | Pillar | Title | Sent | Shape |
 |---|---|---|---|
+| P2 — This Is Water | [Let us not trust an empty search](posts/2026-11-27-p2-let-us-not-trust-an-empty-search.md) | 2026-11-27 |  |
 | The movement — effort to look, no effort in the seeing | [Let us not put the effort in the looking](posts/2026-11-25-movement-let-us-not-put-the-effort-in-the-looking.md) | 2026-11-25 |  |
 | The movement — effort to look, no effort in the seeing | [Let us leave it at no](posts/2026-11-20-movement-let-us-leave-it-at-no.md) | 2026-11-20 |  |
 | The movement — effort to look, no effort in the seeing | [Let us not do the digesting](posts/2026-11-15-movement-let-us-not-do-the-digesting.md) | 2026-11-15 |  |
